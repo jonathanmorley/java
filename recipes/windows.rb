@@ -56,6 +56,7 @@ else
 
   remote_file cache_file_path do
     checksum pkg_checksum if pkg_checksum
+    headers({ "Cookie" => "oraclelicense=accept-securebackup-cookie" }) if node['java']['oracle']['accept_oracle_download_terms']
     source node['java']['windows']['url']
     backup false
     action :create
