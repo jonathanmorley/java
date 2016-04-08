@@ -42,7 +42,7 @@ if aws_access_key_id && aws_secret_access_key
     action :create
   end
 else
-  ruby_block do
+  ruby_block 'Add cookie to accept Oracle download terms' do
     block do
       # Chef::REST became Chef::HTTP in chef 11
       cookie_jar = Chef::REST::CookieJar if defined?(Chef::REST::CookieJar)
